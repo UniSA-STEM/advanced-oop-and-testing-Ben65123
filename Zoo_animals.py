@@ -18,7 +18,7 @@ class Lion(Animal):
     def make_sound(self):
         return f"{self.name} roars!"
 
-class Giraffe (Animal):
+class Giraffe(Animal):
     def __init__(self, name, age):
         super().__init__(name, "Giraffe",  age, "Herbivore", "Mammal")
 
@@ -45,6 +45,14 @@ class Zebra(Animal):
 
     def make_sound(self):
         return f"{self.name} whinnies."
+
+# Quick tests for zoo animals
+# lion = Lion("Simba", 5)
+# print(lion)
+# print(lion.make_sound())
+# zebra = Zebra("Zebra", 18)
+# print(zebra.make_sound())
+
 
 
 
