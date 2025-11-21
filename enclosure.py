@@ -10,7 +10,7 @@ This is my own work as defined by the University's Academic Integrity Policy.
 from animal import Animal
 
 #Enclosure class for all animals and zoo system. Each enclosure has its own name, environment type,
-#Allowed animal category, a size limit, cleaniness level starting from 100 and a list of animals currently
+#Allowed animal category, a size limit, cleanliness level starting from 100 and a list of animals currently
 #inside the enclosure.
 
 
@@ -34,3 +34,55 @@ class Enclosure:
         self.__size = size
         self.__cleanliness = cleanliness
         self.__animals = []
+
+    def get_name(self):
+        return self.__name
+
+    def set_name(self, name: str):
+        if not name:
+            raise ValueError("Enclosure name cannot be empty.")
+        self.__name = name
+
+
+    def get_environment_type(self):
+        return self.__environment_type
+
+    def set_environment_type(self, environment_type: str):
+        if not environment_type:
+            raise ValueError("Environment type cannot be empty.")
+        self.__environment_type = environment_type
+
+
+    def get_allowed_category(self):
+        return self.__allowed_category
+
+    def set_allowed_category(self, allowed_category: str):
+        if not allowed_category:
+            raise ValueError("Allowed category cannot be empty.")
+        self.__allowed_category = allowed_category
+
+
+    def get_size(self):
+        return self.__size
+
+    def set_size(self, size: int):
+        if not size:
+            raise ValueError("Enclosure size cannot be empty.")
+        self.__size = size
+
+    def get_cleanliness(self):
+        return self.__cleanliness
+
+    def set_cleanliness(self, cleanliness: int):
+        if cleanliness < 0 or cleanliness > 100:
+            raise ValueError("Cleanliness must be between 0 and 100.")
+        self.__cleanliness = cleanliness
+
+    name = property(get_name, set_name)
+    environment_type = property(get_environment_type, set_environment_type)
+    allowed_category = property(get_allowed_category, set_allowed_category)
+    size = property(get_size, set_size)
+    cleanliness = property(get_cleanliness, set_cleanliness)
+
+
+
