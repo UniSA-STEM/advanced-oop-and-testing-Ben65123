@@ -84,7 +84,8 @@ class Animal(ABC):
     def __str__(self):
         return f"Animal name: {self.name}, Species: {self.species}, Age: {self.age}, Diet: {self.diet}, Category: {self.category}"
 
-# animal = Animal('ben' , 'dog' , 10 , 'carnivore', ' mammal' )
+# Quick testing for str method.
+# animal = Animal('ben', 'dog', 10, 'carnivore', 'mammal')
 # print(animal)
 
     #All basic method of an animal used here.
