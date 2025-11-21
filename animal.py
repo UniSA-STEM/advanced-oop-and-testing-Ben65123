@@ -8,7 +8,7 @@ This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
 
-# Basic animal class for zoo system, stores the key attributes of an animal, allows for the creation of 1 animal at a time.
+# Animal class for zoo system, stores the key attributes of an animal, allows for the creation of 1 animal at a time.
 # keeps the data private so that they cant be changed or tampered with from the outside. Have safe ways
 # to access and update the data with the getters, setters and property's.
 # Using abstractmethod for make sound becuase this behaviour is different for every species for example

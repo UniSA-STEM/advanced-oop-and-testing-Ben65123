@@ -8,7 +8,9 @@ This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
 from animal import Animal
-
+#Animals for zoo created. Each subclass is a different animal with species, diet and category automatically
+#stored already, while name and age is required to be entered by user. Each subclass overrides the make_sound
+#method created in the animals file as this was a abstract method.
 class Lion(Animal):
     def __init__(self, name, age):
         super().__init__(name, "Lion",  age, "Carnivore", "Mammal")
@@ -22,4 +24,12 @@ class Giraffe (Animal):
 
     def make_sound(self):
         return f"{self.name} makes humming sounds"
+
+class Snake(Animal):
+    def __init__(self, name, age):
+        super().__init__(name, "Snake", age, "Carnivore", "Reptile")
+
+    def make_sound(self):
+        return f"{self.name} hisses."
+
 
