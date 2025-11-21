@@ -30,6 +30,15 @@ class Snake(Animal):
         super().__init__(name, "Snake", age, "Carnivore", "Reptile")
 
     def make_sound(self):
-        return f"{self.name} hisses."
+        return f"{self.name} hissessss."
+
+class Elephant(Animal):
+    def __init__(self, name, age):
+        super().__init__(name, "Elephant", age, "Herbivore", "Mammal")
+
+    def make_sound(self):
+        return f"{self.name} trumpets!"
+
+
 
 
