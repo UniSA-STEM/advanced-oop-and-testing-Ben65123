@@ -16,3 +16,10 @@ class Lion(Animal):
     def make_sound(self):
         return f"{self.name} roars!"
 
+class Giraffe (Animal):
+    def __init__(self, name, age):
+        super().__init__(name, "Giraffe",  age, "Herbivore", "Mammal")
+
+    def make_sound(self):
+        return f"{self.name} makes humming sounds"
+
