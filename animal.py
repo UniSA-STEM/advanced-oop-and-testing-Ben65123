@@ -11,7 +11,10 @@ This is my own work as defined by the University's Academic Integrity Policy.
 # Basic animal class for zoo system, stores the key attributes of an animal, allows for the creation of 1 animal at a time.
 # keeps the data private so that they cant be changed or tampered with from the outside. Have safe ways
 # to access and update the data with the getters, setters and property's.
-class Animal:
+# Using abstractmethod for make sound becuase this behaviour is different for every species for example
+# An dog cannot meow.
+from abc import ABC, abstractmethod
+class Animal(ABC):
     def __init__(self, name: str, species: str, age: int, diet: str, category: str):
         # Validation to make sure values are not empty.
         if not name:
@@ -81,6 +84,20 @@ class Animal:
     def __str__(self):
         return f"Animal name: {self.name}, Species: {self.species}, Age: {self.age}, Diet: {self.diet}, Category: {self.category}"
 
-animal = Animal('ben' , 'dog' , 10 , 'carnivore', ' mammal' )
-print(animal)
+# animal = Animal('ben' , 'dog' , 10 , 'carnivore', ' mammal' )
+# print(animal)
+
+    #All basic method of an animal used here.
+    def eat(self):
+        return f"{self.name} is eating. Diet type: {self.diet}"
+
+    def sleep(self):
+        return f"{self.name} is now sleeping."
+
+    @abstractmethod
+    def make_sound(self):
+        pass
+
+
+
 
