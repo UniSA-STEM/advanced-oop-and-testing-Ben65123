@@ -7,7 +7,7 @@ Username: sieby003
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
-# animal.py
+
 # Basic animal class for zoo system, stores the key attributes of an animal, allows for the creation of 1 animal at a time.
 # keeps the data private so that they cant be changed or tampered with from the outside. Have safe ways
 # to access and update the data with the getters, setters and property's.
@@ -76,3 +76,11 @@ class Animal:
     age = property(get_age, set_age)
     diet = property(get_diet, set_diet)
     category = property(get_category, set_category)
+
+    #Str method for quick testing
+    def __str__(self):
+        return f"Animal name: {self.name}, Species: {self.species}, Age: {self.age}, Diet: {self.diet}, Category: {self.category}"
+
+animal = Animal('ben' , 'dog' , 10 , 'carnivore', ' mammal' )
+print(animal)
+
