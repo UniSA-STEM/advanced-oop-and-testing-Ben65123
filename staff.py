@@ -62,9 +62,17 @@ class Staff:
     assigned_enclosures = property(get_assigned_enclosures)
     assigned_animals = property(get_assigned_animals)
 
+
     def assign_enclosure(self, enclosure):
         if not isinstance(enclosure, Enclosure):
             raise TypeError("Only Enclosure objects can be assigned.")
         if enclosure not in self.__assigned_enclosures:
             self.__assigned_enclosures.append(enclosure)
+
+
+    def assign_animal(self, animal):
+        if not isinstance(animal, Animal):
+            raise TypeError("Only Animal objects can be assigned.")
+        if animal not in self.__assigned_animals:
+            self.__assigned_animals.append(animal)
 
