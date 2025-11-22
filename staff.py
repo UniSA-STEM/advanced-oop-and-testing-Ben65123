@@ -7,6 +7,10 @@ Username: sieby003
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
+
+#Staff class for zoo system. Each staff member has a name, role and staff ID. staff members can be assigned
+#to different animals and enclosures.
+
 from animal import Animal
 from enclosure import Enclosure
 
@@ -62,14 +66,14 @@ class Staff:
     assigned_enclosures = property(get_assigned_enclosures)
     assigned_animals = property(get_assigned_animals)
 
-
+    # Assigns enclosure to the staff member.
     def assign_enclosure(self, enclosure):
         if not isinstance(enclosure, Enclosure):
             raise TypeError("Only Enclosure objects can be assigned.")
         if enclosure not in self.__assigned_enclosures:
             self.__assigned_enclosures.append(enclosure)
 
-
+    #Assigns animal to the staff.
     def assign_animal(self, animal):
         if not isinstance(animal, Animal):
             raise TypeError("Only Animal objects can be assigned.")
@@ -81,3 +85,12 @@ class Staff:
                 f"Enclosures: {len(self.__assigned_enclosures)}, "
                 f"Animals: {len(self.__assigned_animals)}")
 
+#simple tests
+from Zoo_animals import Lion
+from enclosure import Enclosure
+staff = Staff("Alex", "Zookeeper", 1)
+savannah = Enclosure("Savannah Habitat", "Savannah", "Mammal", 3)
+simba = Lion("Simba", 5)
+staff.assign_enclosure(savannah)
+staff.assign_animal(simba)
+print(staff)
