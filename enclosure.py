@@ -84,5 +84,22 @@ class Enclosure:
     size = property(get_size, set_size)
     cleanliness = property(get_cleanliness, set_cleanliness)
 
+    #Created add_animals method, checks if animal is of type animal, checks if animal category is allowed in
+    #that specific enclosure then lastly checks if the enclosure is full.
+    def add_animal(self, animal):
+        if not isinstance(animal, Animal):
+            raise TypeError("Only Animal objects can be added to an enclosure.")
+
+        if animal.category != self.allowed_category:
+            raise ValueError("This animal cannot be added to this enclosure.")
+
+        if len(self.__animals) >= self.size:
+            raise ValueError("Enclosure is full.")
+
+        self.__animals.append(animal)
+
+
+
+
 
 
