@@ -97,6 +97,11 @@ class Enclosure:
             raise ValueError("Enclosure is full.")
 
         self.__animals.append(animal)
+    #removes animal from enclosure.
+    def remove_animal(self, animal: Animal):
+        if animal not in self.__animals:
+            raise ValueError("Animal is not in this enclosure.")
+        self.__animals.remove(animal)
 
 
 
