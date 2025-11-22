@@ -25,3 +25,40 @@ class Staff:
         self.__staff_id = staff_id
         self.__assigned_enclosures = []
         self.__assigned_animals = []
+
+    def get_name(self):
+        return self.__name
+
+    def set_name(self, name: str):
+        if not name:
+            raise ValueError("Staff name cannot be empty.")
+        self.__name = name
+
+    def get_role(self):
+        return self.__role
+
+    def set_role(self, role: str):
+        if not role:
+            raise ValueError("Staff role cannot be empty.")
+        self.__role = role
+
+    def get_staff_id(self):
+        return self.__staff_id
+
+    def set_staff_id(self, staff_id: int):
+        if staff_id <= 0:
+            raise ValueError("Staff ID must be greater than 0.")
+        self.__staff_id = staff_id
+
+    def get_assigned_enclosures(self):
+        return self.__assigned_enclosures
+
+    def get_assigned_animals(self):
+        return self.__assigned_animals
+
+    name = property(get_name, set_name)
+    role = property(get_role, set_role)
+    staff_id = property(get_staff_id, set_staff_id)
+    assigned_enclosures = property(get_assigned_enclosures)
+    assigned_animals = property(get_assigned_animals)
+
