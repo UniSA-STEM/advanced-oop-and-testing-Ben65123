@@ -97,12 +97,32 @@ class Enclosure:
             raise ValueError("Enclosure is full.")
 
         self.__animals.append(animal)
+        return f"Added {animal.name} to the enclosure."
+
     #removes animal from enclosure.
     def remove_animal(self, animal: Animal):
         if animal not in self.__animals:
             raise ValueError("Animal is not in this enclosure.")
         self.__animals.remove(animal)
 
+    #Clean method enables the cleaning of an enclosure.
+    def clean(self):
+        self.__cleanliness = 100
+        return f"{self.__name} has been cleaned. Cleanliness is now {self.__cleanliness}."
+
+    def __str__(self):
+        return (f"Enclosure: {self.__name}, Environment: {self.__environment_type}, "
+                f"Allowed category: {self.__allowed_category}, Cleanliness: {self.__cleanliness}, "
+                f"Animals: {len(self.__animals)}/{self.__size}")
+
+
+#tests
+# from Zoo_animals import Lion
+# enclosure = Enclosure("Savannah Habitat", "Savannah", "Mammal", 2)
+# simba = Lion("Simba", 5)
+# print(enclosure.add_animal(simba))
+# print(enclosure)
+# print(enclosure.clean())
 
 
 
