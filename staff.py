@@ -76,3 +76,8 @@ class Staff:
         if animal not in self.__assigned_animals:
             self.__assigned_animals.append(animal)
 
+    def __str__(self):
+        return (f"Staff: {self.__name}, Role: {self.__role}, ID: {self.__staff_id}, "
+                f"Enclosures: {len(self.__assigned_enclosures)}, "
+                f"Animals: {len(self.__assigned_animals)}")
+

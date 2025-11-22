@@ -112,8 +112,8 @@ class Enclosure:
 
     def __str__(self):
         return (f"Enclosure: {self.__name}, Environment: {self.__environment_type}, "
-                f"Allowed category: {self.__allowed_category}, Cleanliness: {self.__cleanliness}, "
-                f"Animals: {len(self.__animals)}/{self.__size}")
+                f"Allowed category: {self.__allowed_category}, Cleanliness: {self.__cleanliness},")
+
 
 
 #tests
