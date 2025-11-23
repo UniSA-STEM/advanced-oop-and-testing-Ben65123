@@ -85,12 +85,32 @@ class Staff:
                 f"Enclosures: {len(self.__assigned_enclosures)}, "
                 f"Animals: {len(self.__assigned_animals)}")
 
-#simple tests
-from Zoo_animals import Lion
-from enclosure import Enclosure
-staff = Staff("Alex", "Zookeeper", 1)
-savannah = Enclosure("Savannah Habitat", "Savannah", "Mammal", 3)
-simba = Lion("Simba", 5)
-staff.assign_enclosure(savannah)
-staff.assign_animal(simba)
-print(staff)
+# #simple tests
+# from Zoo_animals import Lion
+# from enclosure import Enclosure
+# staff = Staff("Alex", "Zookeeper", 1)
+# savannah = Enclosure("Savannah Habitat", "Savannah", "Mammal", 3)
+# simba = Lion("Simba", 5)
+# staff.assign_enclosure(savannah)
+# staff.assign_animal(simba)
+# print(staff)
+
+
+
+class Zookeeper(Staff):
+        # Zookeeper is a type of staff that can feed animals and clean enclosures.
+        def __init__(self, name: str, staff_id: int):
+            super().__init__(name, "Zookeeper", staff_id)
+
+        def feed_animal(self, animal):
+            if not isinstance(animal, Animal):
+                raise TypeError("Zookeeper can only feed Animal objects.")
+            # Call the animal's eat method and return a simple message.
+            return f"{self.name} is feeding {animal.name}. {animal.eat()}"
+
+        def clean_enclosure(self, enclosure):
+            if not isinstance(enclosure, Enclosure):
+                raise TypeError("Zookeeper can only clean Enclosure objects.")
+            # Use the enclosure's clean method.
+            return  {enclosure.clean()}
+

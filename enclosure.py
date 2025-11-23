@@ -93,6 +93,9 @@ class Enclosure:
         if animal.category != self.allowed_category:
             raise ValueError("This animal cannot be added to this enclosure.")
 
+        if animal.has_active_health_issue():
+            raise ValueError("Animal cannot be moved while under treatment.")
+
         if len(self.__animals) >= self.size:
             raise ValueError("Enclosure is full.")
 
