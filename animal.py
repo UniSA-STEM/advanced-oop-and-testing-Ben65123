@@ -100,6 +100,20 @@ class Animal(ABC):
         self.__health_record = record
 
 
+    def has_active_health_issue(self):
+        if  self.__health_record.active is False:
+            return "Animal has no current health issue."
+        else:
+            return True
+
+
+    def get_health_record(self):
+        return self.__health_record
+
+
+
+
+
     def __str__(self):
         return f"Animal name: {self.name}, Species: {self.species}, Age: {self.age}, Diet: {self.diet}, Category: {self.category}"
 
