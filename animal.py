@@ -80,13 +80,6 @@ class Animal(ABC):
     diet = property(get_diet, set_diet)
     category = property(get_category, set_category)
 
-    #Str method for quick testing
-    def __str__(self):
-        return f"Animal name: {self.name}, Species: {self.species}, Age: {self.age}, Diet: {self.diet}, Category: {self.category}"
-
-# Quick testing for str method.
-# animal = Animal('ben', 'dog', 10, 'carnivore', 'mammal')
-# print(animal)
 
     #All basic method of an animal used here.
     def eat(self):
@@ -98,6 +91,17 @@ class Animal(ABC):
     @abstractmethod
     def make_sound(self):
         pass
+
+
+    def assign_health_record(self, record):
+        from health_record import HealthRecord
+        if not isinstance(record, HealthRecord):
+            raise TypeError("Only HealthRecord objects can be assigned.")
+        self.__health_record = record
+
+
+    def __str__(self):
+        return f"Animal name: {self.name}, Species: {self.species}, Age: {self.age}, Diet: {self.diet}, Category: {self.category}"
 
 
 
