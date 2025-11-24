@@ -112,7 +112,7 @@ class Zookeeper(Staff):
             if not isinstance(enclosure, Enclosure):
                 raise TypeError("Zookeeper can only clean Enclosure objects.")
             # Use the enclosure's clean method.
-            return  {enclosure.clean()}
+            return  enclosure.clean()
 
 class Veterinarian(Staff):
     # Veterinarian is a staff member that looks after animal health. It can conduct animal health checks and
@@ -133,7 +133,7 @@ class Veterinarian(Staff):
             raise TypeError("Veterinarian can only update Animal objects.")
 
         record = animal.get_health_record()
-        record.active == False
+        record.active = False
         return f"{self.name} has resolved the health issue for {animal.name}."
 
 

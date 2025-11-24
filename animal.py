@@ -33,6 +33,7 @@ class Animal(ABC):
         self.__age = age
         self.__diet = diet
         self.__category = category
+        self.__health_record = None
 
     def get_name(self):
         return self.__name
@@ -101,10 +102,7 @@ class Animal(ABC):
 
     # Returns false if animal does not have current health issue and true if it does.
     def has_active_health_issue(self):
-        if  self.__health_record.active is False:
-            return "Animal has no current health issue."
-        else:
-            return True
+        return self.__health_record is not None and self.__health_record.active
 
     # Gets current health record of an animal.
     def get_health_record(self):
