@@ -1,6 +1,8 @@
 '''
 File: enclosure.py
-Description: A brief description of this Python module.
+Description: Enclosure class for all animals and zoo system. Each enclosure has its own name, environment type,
+Allowed animal category, a size limit, cleanliness level starting from 100 and a list of animals currently
+inside the enclosure.
 Author: Benjamin Sienicki
 ID: 110442676
 Username: sieby003

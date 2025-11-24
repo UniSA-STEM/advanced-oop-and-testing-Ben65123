@@ -1,6 +1,7 @@
 '''
 File: staff.py
-Description: A brief description of this Python module.
+Description: Staff class for zoo system. Each staff member has a name, role and staff ID. staff members can be assigned
+to different animals and enclosures. Have included 2 types of staff, zookeeper and veterinarian.
 Author: Benjamin Sienicki
 ID: 110442676
 Username: sieby003

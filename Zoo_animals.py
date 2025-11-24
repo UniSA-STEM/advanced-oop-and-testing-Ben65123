@@ -1,6 +1,8 @@
 '''
 File: Zoo_animals.py
-Description: A brief description of this Python module.
+Description: Animals for zoo system. Each subclass is a different animal with species, diet and category automatically
+stored already, while name and age is required to be entered by user. Each subclass overrides the make_sound
+method created in the animals file as this was a abstract method.
 Author: Benjamin Sienicki
 ID: 110442676
 Username: sieby003
@@ -8,7 +10,7 @@ This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
 from animal import Animal
-#Animals for zoo created. Each subclass is a different animal with species, diet and category automatically
+#Animals for zoo system. Each subclass is a different animal with species, diet and category automatically
 #stored already, while name and age is required to be entered by user. Each subclass overrides the make_sound
 #method created in the animals file as this was a abstract method.
 class Lion(Animal):

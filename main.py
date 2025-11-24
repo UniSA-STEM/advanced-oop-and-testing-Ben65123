@@ -1,15 +1,15 @@
 '''
 File: main.py
-Description: A brief description of this Python module.
+Description: This file runs the whole zoo system and shows it in action.
 Author: Benjamin Sienicki
 ID: 110442676
 Username: sieby003
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
-"""
-Main demonstration file for the zoo system.
-"""
+
+#Tests for zoo system
+
 
 from Zoo_animals import Lion, Elephant
 from enclosure import Enclosure
