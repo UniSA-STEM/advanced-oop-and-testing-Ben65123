@@ -9,11 +9,11 @@ This is my own work as defined by the University's Academic Integrity Policy.
 
 
 #Staff class for zoo system. Each staff member has a name, role and staff ID. staff members can be assigned
-#to different animals and enclosures.
+#to different animals and enclosures. Have included 2 types of staff, zookeeper and veterinarian.
 
 from animal import Animal
 from enclosure import Enclosure
-
+from health_record import HealthRecord
 
 class Staff:
     def __init__(self, name: str, role: str, staff_id: int):
@@ -71,19 +71,19 @@ class Staff:
         if not isinstance(enclosure, Enclosure):
             raise TypeError("Only Enclosure objects can be assigned.")
         if enclosure not in self.__assigned_enclosures:
-            self.__assigned_enclosures.append(enclosure)
+            self.assigned_enclosures.append(enclosure)
 
     #Assigns animal to the staff.
     def assign_animal(self, animal):
         if not isinstance(animal, Animal):
             raise TypeError("Only Animal objects can be assigned.")
         if animal not in self.__assigned_animals:
-            self.__assigned_animals.append(animal)
+            self.assigned_animals.append(animal)
 
     def __str__(self):
-        return (f"Staff: {self.__name}, Role: {self.__role}, ID: {self.__staff_id}, "
-                f"Enclosures: {len(self.__assigned_enclosures)}, "
-                f"Animals: {len(self.__assigned_animals)}")
+        return (f"Staff: {self.name}, Role: {self.role}, ID: {self.staff_id}, "
+                f"Enclosures: {len(self.assigned_enclosures)}, "
+                f"Animals: {len(self.assigned_animals)}")
 
 # #simple tests
 # from Zoo_animals import Lion
@@ -113,4 +113,27 @@ class Zookeeper(Staff):
                 raise TypeError("Zookeeper can only clean Enclosure objects.")
             # Use the enclosure's clean method.
             return  {enclosure.clean()}
+
+class Veterinarian(Staff):
+    # Veterinarian is a staff member that looks after animal health. It can conduct animal health checks and
+    # resolve the animals health issue.
+    def __init__(self, name: str, staff_id: int):
+        super().__init__(name, "Veterinarian", staff_id)
+
+    def conduct_health_check(self, animal, issue: str, severity: str, treatment_notes: str = ""):
+        if not isinstance(animal, Animal):
+            raise TypeError("Veterinarian can only examine Animal objects.")
+
+        record = HealthRecord(issue, severity, treatment_notes)
+        animal.assign_health_record(record)
+        return f"{self.name} checked {animal.name} and recorded: {issue} ({severity})."
+
+    def resolve_health_issue(self, animal):
+        if not isinstance(animal, Animal):
+            raise TypeError("Veterinarian can only update Animal objects.")
+
+        record = animal.get_health_record()
+        record.active == False
+        return f"{self.name} has resolved the health issue for {animal.name}."
+
 

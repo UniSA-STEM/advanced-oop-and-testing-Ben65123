@@ -7,6 +7,11 @@ Username: sieby003
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
+
+# Health record class for tracking animal health inside the zoo system. All attributes made private, included
+# all getters, setters and properties. Made self.active a bool, so I can return if an animal has active health
+# issues or not.
+
 class HealthRecord:
     def __init__(self, issue: str, severity: str, treatment_notes: str, active: bool = True):
         if not issue:
@@ -46,13 +51,14 @@ class HealthRecord:
     def get_active(self):
         return self.__active
 
-    def resolve(self):
-        self.__active = False
+    def set_active(self, active: bool):
+        self.__active = active
+
 
     issue = property(get_issue, set_issue)
     severity = property(get_severity, set_severity)
     treatment_notes = property(get_treatment_notes, set_treatment_notes)
-    active = property(get_active)
+    active = property(get_active, set_active)
 
     def __str__(self):
         return f"Issue: {self.__issue}, Severity: {self.__severity}, Active: {self.__active}"

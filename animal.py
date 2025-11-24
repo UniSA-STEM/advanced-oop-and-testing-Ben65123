@@ -92,25 +92,23 @@ class Animal(ABC):
     def make_sound(self):
         pass
 
-
+    # Assigns health record to a animal
     def assign_health_record(self, record):
         from health_record import HealthRecord
         if not isinstance(record, HealthRecord):
             raise TypeError("Only HealthRecord objects can be assigned.")
         self.__health_record = record
 
-
+    # Returns false if animal does not have current health issue and true if it does.
     def has_active_health_issue(self):
         if  self.__health_record.active is False:
             return "Animal has no current health issue."
         else:
             return True
 
-
+    # Gets current health record of an animal.
     def get_health_record(self):
         return self.__health_record
-
-
 
 
 
